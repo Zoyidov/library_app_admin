@@ -92,6 +92,9 @@ class LibraryInformationScreen extends StatelessWidget {
                                       if (value!.isEmpty) {
                                         return "Latitude is required";
                                       }
+                                      if (double.tryParse(value) == null) {
+                                        return "Enter valid latitude";
+                                      }
                                       return null;
                                     },
                                   ),
@@ -106,6 +109,9 @@ class LibraryInformationScreen extends StatelessWidget {
                                       //  TODO: enter double format
                                       if (value!.isEmpty) {
                                         return "Longitude is required";
+                                      }
+                                      if (double.tryParse(value) == null) {
+                                        return "Enter valid latitude";
                                       }
                                       return null;
                                     },

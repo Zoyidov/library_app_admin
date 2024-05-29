@@ -14,6 +14,8 @@ final ThemeData appTheme = ThemeData(
     surfaceTintColor: AppColors.whiteWhite,
 
   ),
+  dialogBackgroundColor: Colors.white,
+  dialogTheme:    DialogTheme(backgroundColor: Colors.white),
   scaffoldBackgroundColor: AppColors.whiteWhite,
   inputDecorationTheme: inputDecorationTheme,
   filledButtonTheme: filledButtonTheme,

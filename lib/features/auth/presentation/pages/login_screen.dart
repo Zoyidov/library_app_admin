@@ -7,6 +7,7 @@ import 'package:library_app_admin/core/helpers/dialog.dart';
 import 'package:library_app_admin/features/auth/data/repositories/auth_repository.dart';
 import 'package:library_app_admin/features/auth/presentation/manager/auth_page/auth_cubit.dart';
 import 'package:library_app_admin/features/auth/presentation/manager/login/login_cubit.dart';
+import 'package:library_app_admin/main.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -32,6 +33,7 @@ class LoginScreen extends StatelessWidget {
           final cubit = context.read<LoginCubit>();
           return SafeArea(
             child: Scaffold(
+
               body: Center(
                 child: SingleChildScrollView(
                   padding: const EdgeInsets.all(16),

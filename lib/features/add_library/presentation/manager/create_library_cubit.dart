@@ -26,7 +26,6 @@ class LibraryInformationCubit extends Cubit<CreateLibraryState> {
     emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
 
     final library = LibraryEntity(
-      id: UniqueIdHelper.generateUniqueId(),
       name: nameController.text.trim(),
       contactInfo: contactController.text.trim(),
       address: addressController.text.trim(),
@@ -42,8 +41,21 @@ class LibraryInformationCubit extends Cubit<CreateLibraryState> {
   }
 }
 
-class LibraryEntity {
+class LibraryModel{
   final String id;
+
+  LibraryModel({
+    required this.id
+  });
+
+  factory LibraryModel.fromMap(Map<String, dynamic> map) {
+    return LibraryModel(
+      id: map['id'] as String
+    );
+  }
+}
+
+class LibraryEntity {
   final String name;
   final String contactInfo;
   final String address;
@@ -51,7 +63,6 @@ class LibraryEntity {
   final String longitude;
 
   LibraryEntity({
-    required this.id,
     required this.name,
     required this.contactInfo,
     required this.address,
@@ -61,12 +72,11 @@ class LibraryEntity {
 
   @override
   String toString() {
-    return 'LibraryEntity{id: $id, name: $name, contactInfo: $contactInfo, address: $address, latitude: $latitude, longitude: $longitude}';
+    return 'LibraryEntity{ name: $name, contactInfo: $contactInfo, address: $address, latitude: $latitude, longitude: $longitude}';
   }
 
   Map<String, dynamic> toMap() {
     return {
-      'id': id,
       'name': name,
       'contactInfo': contactInfo,
       'address': address,
@@ -76,7 +86,6 @@ class LibraryEntity {
 
   factory LibraryEntity.fromMap(Map<String, dynamic> map) {
     return LibraryEntity(
-      id: map['id'] as String,
       name: map['name'] as String,
       contactInfo: map['contactInfo'] as String,
       address: map['address'] as String,
